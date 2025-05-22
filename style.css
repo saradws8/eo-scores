@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header {
+  background-color: #74b9ef;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 24px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  height: 60px;
+  line-height: 40px;
+}
+
+.sidebar {
+  background-color: #f4f4f4;
+  width: 220px;
+  position: fixed;
+  top: 60px; /* يبدأ بعد الهيدر مباشرة */
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-content {
+  overflow-y: auto;
+  padding: 20px;
+  height: 100%;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  display: block;
+  transition: background 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #ddd;
+  padding-right: 10px;
+}
+
+main {
+  margin-right: 240px;
+  padding: 100px 20px 20px 20px; /* padding-top عالي لتفادي الهيدر */
+  flex-grow: 1;
+}
+
+section {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+section.active {
+  display: block;
+}
+
+footer {
+  background-color: #74b9ef;
+  color: white;
+  text-align: center;
+  padding: 21px;
+  font-size: 16px;
+  position: relative;
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.form-btn {
+  background-color: #52bc61;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.form-btn:hover {
+  background-color: #75c17f;
+}
+
+.header-image {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+

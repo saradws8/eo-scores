@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>الاستبيان العام - EO</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding: 30px;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #74b9ef;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .options label {
+            font-weight: normal;
+        }
+
+        .submit-btn {
+            background-color:#74b9ef ;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #a2d3f8;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>الاستبيان العام لتقييم التوجه الريادي (EO)</h2>
+
+    <form id="eoForm">
+
+        <div class="question">
+            <label>1. مؤسستي تشجع على الابتكار وتبنّي أفكار جديدة.</label>
+            <div class="options">
+                <label><input type="radio" name="q1" value="1"> 1</label>
+                <label><input type="radio" name="q1" value="2"> 2</label>
+                <label><input type="radio" name="q1" value="3"> 3</label>
+                <label><input type="radio" name="q1" value="4"> 4</label>
+                <label><input type="radio" name="q1" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label>2. نتخذ قرارات استباقية بدلاً من انتظار الظروف.</label>
+            <div class="options">
+                <label><input type="radio" name="q2" value="1"> 1</label>
+                <label><input type="radio" name="q2" value="2"> 2</label>
+                <label><input type="radio" name="q2" value="3"> 3</label>
+                <label><input type="radio" name="q2" value="4"> 4</label>
+                <label><input type="radio" name="q2" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label>3. المؤسسة مستعدة لتحمّل المخاطر المحسوبة.</label>
+            <div class="options">
+                <label><input type="radio" name="q3" value="1"> 1</label>
+                <label><input type="radio" name="q3" value="2"> 2</label>
+                <label><input type="radio" name="q3" value="3"> 3</label>
+                <label><input type="radio" name="q3" value="4"> 4</label>
+                <label><input type="radio" name="q3" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label>4. الموظفون لديهم حرية اتخاذ القرار وتنفيذ الأفكار.</label>
+            <div class="options">
+                <label><input type="radio" name="q4" value="1"> 1</label>
+                <label><input type="radio" name="q4" value="2"> 2</label>
+                <label><input type="radio" name="q4" value="3"> 3</label>
+                <label><input type="radio" name="q4" value="4"> 4</label>
+                <label><input type="radio" name="q4" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label>5. نسعى جاهدين لتحسين الخدمة وتلبية توقعات العملاء.</label>
+            <div class="options">
+                <label><input type="radio" name="q5" value="1"> 1</label>
+                <label><input type="radio" name="q5" value="2"> 2</label>
+                <label><input type="radio" name="q5" value="3"> 3</label>
+                <label><input type="radio" name="q5" value="4"> 4</label>
+                <label><input type="radio" name="q5" value="5"> 5</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <label>6. نقوم باستخدام أدوات وتقنيات رقمية متطورة في العمل.</label>
+            <div class="options">
+                <label><input type="radio" name="q6" value="1"> 1</label>
+                <label><input type="radio" name="q6" value="2"> 2</label>
+                <label><input type="radio" name="q6" value="3"> 3</label>
+                <label><input type="radio" name="q6" value="4"> 4</label>
+                <label><input type="radio" name="q6" value="5"> 5</label>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-btn">إرسال</button>
+    </form>
+
+    <script>
+        document.getElementById('eoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            let total = 0;
+            let answered = 0;
+
+            for (let i = 1; i <= 6; i++) {
+                const selected = document.querySelector('input[name="q' + i + '"]:checked');
+                if (selected) {
+                    total += parseInt(selected.value);
+                    answered++;
+                }
+            }
+
+            if (answered === 6) {
+                const average = (total / 6).toFixed(2);
+                alert("شكراً! تم حساب معدل EO: " + average);
+                console.log("EO Score:", average);
+            } else {
+                alert("يرجى الإجابة على جميع الأسئلة قبل الإرسال.");
+            }
+        });
+    </script>
+
+</body>
+</html>

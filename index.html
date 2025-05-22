@@ -1,0 +1,116 @@
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>EO Scores</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* تحسين مظهر زر الاستبيان */
+        .form-btn {
+            background-color: #5bcd70;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+        .form-btn img {
+            width: 20px;
+            height: 20px;
+            margin-left: 8px;
+        }
+        .form-btn:hover {
+            background-color: #80d38f;
+            background-color: ;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>EO Scores</h1>
+</header>
+
+<div class="sidebar">
+  <div class="sidebar-content">
+    <ul>
+      <li><a href="#home">الرئيسية</a></li>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#forms">الاستبيانات</a></li>
+      <li><a href="#feedbacks">آراء العملاء</a></li>
+      <li><a href="#contact">اتصل بنا</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<main>
+    <section id="home" class="active">
+        <img src="ChatGPT Image May 22, 2025, 05_57_26 PM.png" alt="صورة الصفحة الرئيسية" class="header-image" />
+
+        <h2>مرحباً بك في موقع قياس مؤشر الريادة</h2>
+        <p>ستنطلق في رحلة مميزة لاكتشاف قدراتك الريادية وأفكارك المبتكرة. هنا ستجد الأدوات التي تحتاجها لفهم نقاط قوتك وتحديد فرص النمو لتطوير عملك أو مشروعك الريادي، استناداً إلى إطار EO الذي يعتمد على أحدث الدراسات والأبحاث العلمية.</p>
+    </section>
+
+    <section id="about">
+        <h2>من نحن</h2>
+        <p>نحن منصة مبتكرة نؤمن بأن الريادة ليست مجرد فكرة، بل هي طريق مدروس نحو النجاح. لذلك قمنا بتطوير هذا الموقع لمساعدتك على تقييم قدراتك الريادية بدقة واحترافية. نحن ندمج الخبرات الأكاديمية بالتحليل العملي لنوفر لك أداة موثوقة لقياس مؤشر ريادتك، وتمكينك من اتخاذ قرارات أفضل لمستقبلك المهني.</p>
+    </section>
+
+    <section id="services">
+        <h2>خدماتنا</h2>
+        <p>نوفّر أدوات تقييم دقيقة لمستوى الريادة عبر استبيانات مصممة بعناية، بالإضافة إلى تحليل ذكي لآراء العملاء باستخدام تقنيات الذكاء الاصطناعي. هدفنا هو تزويدك بنتائج تحليلية معمقة تسلط الضوء على جوانب القوة والفرص المتاحة أمامك، مع تقديم توصيات عملية لتعزيز أدائك الريادي.</p>
+    </section>
+
+    <section id="forms">
+        <h2>الاستبيانات</h2>
+        <p>في هذا القسم، ستتمكن من الوصول إلى مجموعة من الاستبيانات المصممة خصيصاً لمالك المشروع وموظفيه. تساهم هذه الاستبيانات في جمع معلومات دقيقة عن أداء الشركة ونقاط التحسين الممكنة، مما يمكّنك من بناء خطة تطوير ريادية مستدامة تستند إلى بيانات موثوقة.</p>
+        <p> </p>
+        <p>اختر أحد الاستبيانات المتاحة لتقييم التوجه الريادي في مؤسستك:</p>
+
+        <button onclick="location.href='form-general.html'" class="form-btn">
+            ابدأ الاستبيان العام
+            <img src="https://cdn-icons-png.flaticon.com/512/4436/4436481.png" alt="form icon">
+        </button>
+    </section>
+
+    <section id="feedbacks">
+    <h2>آراء العملاء</h2>
+    <p>هنا يمكنك إدخال آراء العملاء حول منتجاتك أو خدماتك، حيث نقوم بتحليل هذه الآراء باستخدام تقنيات مبنية على الكلمات المفتاحية لتحديد الانطباعات الإيجابية أو السلبية وتصنيفها. هذا التحليل يساعدك على فهم عملائك بشكل أفضل وتحسين استراتيجياتك.</p>
+
+    <form id="feedback-form" style="margin-top: 20px;">
+        <label for="feedback-input">أدخل آراء العملاء (كل رأي في سطر منفصل):</label><br>
+        <textarea id="feedback-input" rows="10" style="width: 100%; max-width: 700px;" placeholder="الخدمة ممتازة جدًا\nالتوصيل كان بطيئًا\nالمنتج رائع..."></textarea><br><br>
+        <button type="button" onclick="analyzeFeedbacks()" class="form-btn">تحليل الآراء</button>
+    </form>
+
+    <div id="feedback-results" style="margin-top: 20px;">
+        <!-- نتائج التحليل ستُعرض هنا -->
+    </div>
+</section>
+
+
+    
+
+    <section id="contact">
+        <h2>اتصل بنا</h2>
+        <p>نسعد بتواصلك معنا لأي استفسارات أو ملاحظات. يمكنك التواصل معنا عبر البريد الإلكتروني أو من خلال نماذج الاتصال المخصصة عبر الموقع. فريقنا جاهز لدعمك ومساعدتك في أي وقت.</p>
+        <p>البريد الالكتروني: shmeoscores85@gmail.com</p>   
+        <p>رقم الهاتف: +962 788 225 4160.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 EO Scores. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
