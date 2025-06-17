@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>الاستبيان العام - EO</title>
+  <style>
+    /* إعادة ضبط أساسية */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+    }
+
+   
+
+    main {
+      display: flex;
+      flex-grow: 1;
+      padding: 20px;
+      gap: 20px;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #f4f4f4;
+      border-left: 1px solid #ccc;
+      padding: 20px;
+      overflow-y: auto;
+      position: sticky;
+      top: 80px; /* ارتفاع الهيدر */
+      align-self: flex-start; /* ليبقى طول المحتوى */
+      height: calc(100vh - 140px); /* 80 (هيدر) + 60 (فوتر) */
+    }
+
+    .sidebar ul {
+      list-style: none;
+    }
+
+    .sidebar li {
+      margin-bottom: 15px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      font-size: 18px;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #ddd;
+      padding-right: 10px;
+    }
+
+    /* محتوى الاستبيان يأخذ كامل المساحة المتبقية */
+    .content {
+      flex-grow: 1;
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+
+    h2 {
+      color: #74b9ef;
+      margin-bottom: 20px;
+      text-align: right;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .options {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .options label {
+      font-weight: normal;
+    }
+
+    .submit-btn {
+      background-color:#74b9ef ;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #aad5f6;
+    }
+
+    #result {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      border: 2px solid #74b9ef 0;
+      border-radius: 12px;
+      background-color: #e8f5e9;
+      font-size: 20px;
+      color: #2e7d32;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+  <main>
+    
+
+    <section class="content" id="section1">
+      <h2>الاستبيان الخاص بشركة الكهرباء لتقييم التوجه الريادي (EO)</h2>
+
+      <form id="eoForm">
+        <div class="question">
+      <label>1. تقوم الشركة بدمج التقنيات الجديدة بانتظام لتحسين كفاءة وموثوقية توزيع الطاقة؟</label>
+      <div class="options">
+        <label><input type="radio" name="q1" value="1" required> 1</label>
+        <label><input type="radio" name="q1" value="2"> 2</label>
+        <label><input type="radio" name="q1" value="3"> 3</label>
+        <label><input type="radio" name="q1" value="4"> 4</label>
+        <label><input type="radio" name="q1" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>2. نقوم باستمرار بتطوير وتنفيذ عمليات جديدة لتعزيز الكفاءة التشغيلية لشبكة الكهرباء؟</label>
+      <div class="options">
+        <label><input type="radio" name="q2" value="1" required> 1</label>
+        <label><input type="radio" name="q2" value="2"> 2</label>
+        <label><input type="radio" name="q2" value="3"> 3</label>
+        <label><input type="radio" name="q2" value="4"> 4</label>
+        <label><input type="radio" name="q2" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>3. تروج الشركة لثقافة الإبداع حيث يتم تشجيع الموظفين على توليد واختبار الأفكار المبتكرة؟</label>
+      <div class="options">
+        <label><input type="radio" name="q3" value="1" required> 1</label>
+        <label><input type="radio" name="q3" value="2"> 2</label>
+        <label><input type="radio" name="q3" value="3"> 3</label>
+        <label><input type="radio" name="q3" value="4"> 4</label>
+        <label><input type="radio" name="q3" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>4. نخصص موارد كبيرة للبحث والتطوير التي تركز على إنشاء حلول جديدة لإدارة الشبكات وتوزيع الطاقة؟</label>
+      <div class="options">
+        <label><input type="radio" name="q4" value="1" required> 1</label>
+        <label><input type="radio" name="q4" value="2"> 2</label>
+        <label><input type="radio" name="q4" value="3"> 3</label>
+        <label><input type="radio" name="q4" value="4"> 4</label>
+        <label><input type="radio" name="q4" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>5. تجرب مؤسستي بانتظام تقنيات جديدة أو غير مختبرة لدفع حدود الابتكار في قطاع الطاقة؟</label>
+      <div class="options">
+        <label><input type="radio" name="q5" value="1" required> 1</label>
+        <label><input type="radio" name="q5" value="2"> 2</label>
+        <label><input type="radio" name="q5" value="3"> 3</label>
+        <label><input type="radio" name="q5" value="4"> 4</label>
+        <label><input type="radio" name="q5" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>6. نشارك في شراكات مع خبراء خارجيين ومؤسسات بحثية وشركات تقنية لتطوير حلول طاقة مبتكرة بشكل مشترك؟</label>
+      <div class="options">
+        <label><input type="radio" name="q6" value="1" required> 1</label>
+        <label><input type="radio" name="q6" value="2"> 2</label>
+        <label><input type="radio" name="q6" value="3"> 3</label>
+        <label><input type="radio" name="q6" value="4"> 4</label>
+        <label><input type="radio" name="q6" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>7. تعطي الشركة الأولوية للمشاريع المبتكرة التي تهدف إلى تقليل التأثير البيئي وتحسين الاستدامة في توزيع الطاقة؟</label>
+      <div class="options">
+        <label><input type="radio" name="q7" value="1" required> 1</label>
+        <label><input type="radio" name="q7" value="2"> 2</label>
+        <label><input type="radio" name="q7" value="3"> 3</label>
+        <label><input type="radio" name="q7" value="4"> 4</label>
+        <label><input type="radio" name="q7" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>8. نقوم باستمرار بتطوير منتجات أو خدمات جديدة لتلبية احتياجات مستهلكي الطاقة المتطورة في الأردن؟</label>
+      <div class="options">
+        <label><input type="radio" name="q8" value="1" required> 1</label>
+        <label><input type="radio" name="q8" value="2"> 2</label>
+        <label><input type="radio" name="q8" value="3"> 3</label>
+        <label><input type="radio" name="q8" value="4"> 4</label>
+        <label><input type="radio" name="q8" value="5"> 5</label>
+      </div>
+    </div>
+  </div>
+    <!-- القسم الثاني: الاستباقية -->
+  
+    <div class="question">
+      <label>9. تقوم الشركة بإطلاق مشاريع جديدة لتلبية احتياجات الطاقة المستقبلية؟</label>
+      <div class="options">
+        <label><input type="radio" name="q9" value="1" required> 1</label>
+        <label><input type="radio" name="q9" value="2"> 2</label>
+        <label><input type="radio" name="q9" value="3"> 3</label>
+        <label><input type="radio" name="q9" value="4"> 4</label>
+        <label><input type="radio" name="q9" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>10. إلى أي مدى تستثمر الشركة استباقياً في تحسين البنية التحتية قبل أن تصبح ضرورية؟</label>
+      <div class="options">
+        <label><input type="radio" name="q10" value="1" required> 1</label>
+        <label><input type="radio" name="q10" value="2"> 2</label>
+        <label><input type="radio" name="q10" value="3"> 3</label>
+        <label><input type="radio" name="q10" value="4"> 4</label>
+        <label><input type="radio" name="q10" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>11. تستكشف الشركة طرقًا مبتكرة لتحسين رضا العملاء؟</label>
+      <div class="options">
+        <label><input type="radio" name="q11" value="1" required> 1</label>
+        <label><input type="radio" name="q11" value="2"> 2</label>
+        <label><input type="radio" name="q11" value="3"> 3</label>
+        <label><input type="radio" name="q11" value="4"> 4</label>
+        <label><input type="radio" name="q11" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>12. مدى سرعة تعديل الشركة استراتيجياتها استجابة للتغيرات في أنماط استهلاك الطاقة؟</label>
+      <div class="options">
+        <label><input type="radio" name="q12" value="1" required> 1</label>
+        <label><input type="radio" name="q12" value="2"> 2</label>
+        <label><input type="radio" name="q12" value="3"> 3</label>
+        <label><input type="radio" name="q12" value="4"> 4</label>
+        <label><input type="radio" name="q12" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>13. تسعى الشركة وراء تقنيات جديدة للبقاء في الطليعة في توزيع الطاقة؟</label>
+      <div class="options">
+        <label><input type="radio" name="q13" value="1" required> 1</label>
+        <label><input type="radio" name="q13" value="2"> 2</label>
+        <label><input type="radio" name="q13" value="3"> 3</label>
+        <label><input type="radio" name="q13" value="4"> 4</label>
+        <label><input type="radio" name="q13" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>14. مدى نشاط الشركة في التنبؤ بالتحديات المستقبلية للطاقة والاستعداد لحلول مسبقة؟</label>
+      <div class="options">
+        <label><input type="radio" name="q14" value="1" required> 1</label>
+        <label><input type="radio" name="q14" value="2"> 2</label>
+        <label><input type="radio" name="q14" value="3"> 3</label>
+        <label><input type="radio" name="q14" value="4"> 4</label>
+        <label><input type="radio" name="q14" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>15. إلى أي مدى تسعى الشركة لتنويع طرق توليد الطاقة لديها؟</label>
+      <div class="options">
+        <label><input type="radio" name="q15" value="1" required> 1</label>
+        <label><input type="radio" name="q15" value="2"> 2</label>
+        <label><input type="radio" name="q15" value="3"> 3</label>
+        <label><input type="radio" name="q15" value="4"> 4</label>
+        <label><input type="radio" name="q15" value="5"> 5</label>
+      </div>
+    </div>
+    <div class="question">
+      <label>16. تقيم الشركة إمكانيات التوسع في المناطق غير المخدومة؟</label>
+      <div class="options">
+        <label><input type="radio" name="q16" value="1" required> 1</label>
+        <label><input type="radio" name="q16" value="2"> 2</label>
+        <label><input type="radio" name="q16" value="3"> 3</label>
+        <label><input type="radio" name="q16" value="4"> 4</label>
+        <label><input type="radio" name="q16" value="5"> 5</label>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="question">
+    <label>17. ما مقدار الحرية التي يتمتع بها الموظفون لاقتراح مشاريع أو مبادرات جديدة؟</label>
+    <div class="options">
+      <label><input type="radio" name="q17" value="1" required> 1</label>
+      <label><input type="radio" name="q17" value="2"> 2</label>
+      <label><input type="radio" name="q17" value="3"> 3</label>
+      <label><input type="radio" name="q17" value="4"> 4</label>
+      <label><input type="radio" name="q17" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>18. إلى أي مدى يمكن لرؤساء الأقسام اتخاذ قرارات تخصيص الموارد بشكل مستقل؟</label>
+    <div class="options">
+      <label><input type="radio" name="q18" value="1" required> 1</label>
+      <label><input type="radio" name="q18" value="2"> 2</label>
+      <label><input type="radio" name="q18" value="3"> 3</label>
+      <label><input type="radio" name="q18" value="4"> 4</label>
+      <label><input type="radio" name="q18" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>19. يتخذ الموظفون إجراءات مستقلة لمعالجة اهتمامات العملاء؟</label>
+    <div class="options">
+      <label><input type="radio" name="q19" value="1" required> 1</label>
+      <label><input type="radio" name="q19" value="2"> 2</label>
+      <label><input type="radio" name="q19" value="3"> 3</label>
+      <label><input type="radio" name="q19" value="4"> 4</label>
+      <label><input type="radio" name="q19" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>20. مدى تمكين قادة الفرق لتنفيذ حلول فريدة دون موافقة الإدارة العليا؟</label>
+    <div class="options">
+      <label><input type="radio" name="q20" value="1" required> 1</label>
+      <label><input type="radio" name="q20" value="2"> 2</label>
+      <label><input type="radio" name="q20" value="3"> 3</label>
+      <label><input type="radio" name="q20" value="4"> 4</label>
+      <label><input type="radio" name="q20" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>21. يتمتع الفريق بالمرونة لإنشاء استراتيجياته الخاصة لتحقيق أهداف الشركة؟</label>
+    <div class="options">
+      <label><input type="radio" name="q21" value="1" required> 1</label>
+      <label><input type="radio" name="q21" value="2"> 2</label>
+      <label><input type="radio" name="q21" value="3"> 3</label>
+      <label><input type="radio" name="q21" value="4"> 4</label>
+      <label><input type="radio" name="q21" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>22. إلى أي مدى يتم تشجيع الأفراد على تحمل المسؤولية عن الأفكار المبتكرة؟</label>
+    <div class="options">
+      <label><input type="radio" name="q22" value="1" required> 1</label>
+      <label><input type="radio" name="q22" value="2"> 2</label>
+      <label><input type="radio" name="q22" value="3"> 3</label>
+      <label><input type="radio" name="q22" value="4"> 4</label>
+      <label><input type="radio" name="q22" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>23. ما مقدار السيطرة التي يتمتع بها الفريق في اختيار الأساليب لتحسين كفاءة العمليات؟</label>
+    <div class="options">
+      <label><input type="radio" name="q23" value="1" required> 1</label>
+      <label><input type="radio" name="q23" value="2"> 2</label>
+      <label><input type="radio" name="q23" value="3"> 3</label>
+      <label><input type="radio" name="q23" value="4"> 4</label>
+      <label><input type="radio" name="q23" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>24. تسمح الشركة للأقسام بتعديل عملياتها بشكل مستقل؟</label>
+    <div class="options">
+      <label><input type="radio" name="q24" value="1" required> 1</label>
+      <label><input type="radio" name="q24" value="2"> 2</label>
+      <label><input type="radio" name="q24" value="3"> 3</label>
+      <label><input type="radio" name="q24" value="4"> 4</label>
+      <label><input type="radio" name="q24" value="5"> 5</label>
+    </div>
+  </div>
+</div>
+
+
+  <div class="question">
+    <label>25. ما مدى انفتاح الشركة على إطلاق حلول تكنولوجية غير مثبتة في عملياتها؟</label>
+    <div class="options">
+      <label><input type="radio" name="q25" value="1" required> 1</label>
+      <label><input type="radio" name="q25" value="2"> 2</label>
+      <label><input type="radio" name="q25" value="3"> 3</label>
+      <label><input type="radio" name="q25" value="4"> 4</label>
+      <label><input type="radio" name="q25" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>26. تقوم الشركة بتنفيذ مشاريع مكلفة مالياً ذات عوائد غير مؤكدة؟</label>
+    <div class="options">
+      <label><input type="radio" name="q26" value="1" required> 1</label>
+      <label><input type="radio" name="q26" value="2"> 2</label>
+      <label><input type="radio" name="q26" value="3"> 3</label>
+      <label><input type="radio" name="q26" value="4"> 4</label>
+      <label><input type="radio" name="q26" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>27. إلى أي مدى تتسامح الشركة مع المخاطر المالية قصيرة المدى لتحقيق مكاسب طويلة الأجل؟</label>
+    <div class="options">
+      <label><input type="radio" name="q27" value="1" required> 1</label>
+      <label><input type="radio" name="q27" value="2"> 2</label>
+      <label><input type="radio" name="q27" value="3"> 3</label>
+      <label><input type="radio" name="q27" value="4"> 4</label>
+      <label><input type="radio" name="q27" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>28. كم هو احتمال أن تستثمر الشركة في مصادر الطاقة المتجددة، حتى لو كانت التكاليف الأولية مرتفعة؟</label>
+    <div class="options">
+      <label><input type="radio" name="q28" value="1" required> 1</label>
+      <label><input type="radio" name="q28" value="2"> 2</label>
+      <label><input type="radio" name="q28" value="3"> 3</label>
+      <label><input type="radio" name="q28" value="4"> 4</label>
+      <label><input type="radio" name="q28" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>29.إلى أي مدى تشجع الشركة الأقسام المختلفة على تجربة طرق جديدة، قد تكون محفوفة بالمخاطر؟</label>
+    <div class="options">
+      <label><input type="radio" name="q29" value="1" required> 1</label>
+      <label><input type="radio" name="q29" value="2"> 2</label>
+      <label><input type="radio" name="q29" value="3"> 3</label>
+      <label><input type="radio" name="q29" value="4"> 4</label>
+      <label><input type="radio" name="q29" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>30.مدى استعداد الشركة للدخول في شراكات ذات مخاطر مالية؟</label>
+    <div class="options">
+      <label><input type="radio" name="q30" value="1" required> 1</label>
+      <label><input type="radio" name="q30" value="2"> 2</label>
+      <label><input type="radio" name="q30" value="3"> 3</label>
+      <label><input type="radio" name="q30" value="4"> 4</label>
+      <label><input type="radio" name="q30" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>31.تتخذ الشركة قرارات تفضل الابتكار على الاستقرار  </label>
+    <div class="options">
+      <label><input type="radio" name="q31" value="1" required> 1</label>
+      <label><input type="radio" name="q31" value="2"> 2</label>
+      <label><input type="radio" name="q31" value="3"> 3</label>
+      <label><input type="radio" name="q31" value="4"> 4</label>
+      <label><input type="radio" name="q31" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>32. مدى استعداد الشركة لمواجهة المخاطر التنظيمية المحتملة عند تقديم خدمات جديدة؟ 
+</label>
+    <div class="options">
+      <label><input type="radio" name="q32" value="1" required> 1</label>
+      <label><input type="radio" name="q32" value="2"> 2</label>
+      <label><input type="radio" name="q32" value="3"> 3</label>
+      <label><input type="radio" name="q32" value="4"> 4</label>
+      <label><input type="radio" name="q32" value="5"> 5</label>
+    </div>
+  </div>
+
+
+
+   
+
+
+  <div class="question">
+    <label>33. إلى أي مدى تلتزم الشركة بتقديم خدمات كهرباء موثوقة وعالية الجودة لتلبية توقعات العملاء؟ 
+</label>
+    <div class="options">
+      <label><input type="radio" name="q33" value="1" required> 1</label>
+      <label><input type="radio" name="q33" value="2"> 2</label>
+      <label><input type="radio" name="q33" value="3"> 3</label>
+      <label><input type="radio" name="q33" value="4"> 4</label>
+      <label><input type="radio" name="q33" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>34. تقوم الشركة بمراجعة هيكل التسعير لضمان تقديم أسعار عادلة ترضي المجتمع المحلي؟ </label>
+    <div class="options">
+      <label><input type="radio" name="q34" value="1" required> 1</label>
+      <label><input type="radio" name="q34" value="2"> 2</label>
+      <label><input type="radio" name="q34" value="3"> 3</label>
+      <label><input type="radio" name="q34" value="4"> 4</label>
+      <label><input type="radio" name="q34" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>35. ما مدى استعداد الشركة للاستثمار في توسيع أو تحديث بنيتها التحتية لمواكبة الطلب المتزايد على الطاقة؟</label>
+    <div class="options">
+      <label><input type="radio" name="q35" value="1" required> 1</label>
+      <label><input type="radio" name="q35" value="2"> 2</label>
+      <label><input type="radio" name="q35" value="3"> 3</label>
+      <label><input type="radio" name="q35" value="4"> 4</label>
+      <label><input type="radio" name="q35" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>36.إلى أي درجة تستجيب الشركة بسرعة لشكاوى العملاء أو طلباتهم لتعزيز مستوى رضاهم وثقتهم؟ 
+ </label>
+    <div class="options">
+      <label><input type="radio" name="q36" value="1" required> 1</label>
+      <label><input type="radio" name="q36" value="2"> 2</label>
+      <label><input type="radio" name="q36" value="3"> 3</label>
+      <label><input type="radio" name="q36" value="4"> 4</label>
+      <label><input type="radio" name="q36" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>37.  تستكشف الشركة حلولاً مبتكرة لتوليد الطاقة، مثل الطاقة الشمسية لزيادة تنوع مواردها؟ 
+</label>
+    <div class="options">
+      <label><input type="radio" name="q37" value="1" required> 1</label>
+      <label><input type="radio" name="q37" value="2"> 2</label>
+      <label><input type="radio" name="q37" value="3"> 3</label>
+      <label><input type="radio" name="q37" value="4"> 4</label>
+      <label><input type="radio" name="q37" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>38.  إلى أي مدى تستثمر الشركة في بناء سمعة قوية كمزود موثوق لخدمات الكهرباء في الأردن؟
+</label>
+    <div class="options">
+      <label><input type="radio" name="q38" value="1" required> 1</label>
+      <label><input type="radio" name="q38" value="2"> 2</label>
+      <label><input type="radio" name="q38" value="3"> 3</label>
+      <label><input type="radio" name="q38" value="4"> 4</label>
+      <label><input type="radio" name="q38" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>39.تقوم الشركة بتقييم كفاءة عملياتها لضمان تقديم خدمة مستقرة ومستدامة لعملائها؟ </label>
+    <div class="options">
+      <label><input type="radio" name="q39" value="1" required> 1</label>
+      <label><input type="radio" name="q39" value="2"> 2</label>
+      <label><input type="radio" name="q39" value="3"> 3</label>
+      <label><input type="radio" name="q39" value="4"> 4</label>
+      <label><input type="radio" name="q39" value="5"> 5</label>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>40.  كم من الجهد تبذله الشركة في تقوية علاقاتها مع الهيئات التنظيمية للحفاظ على دعمها لوضعها الاحتكاري؟ 
+</label>
+    <div class="options">
+      <label><input type="radio" name="q40" value="1" required> 1</label>
+      <label><input type="radio" name="q40" value="2"> 2</label>
+      <label><input type="radio" name="q40" value="3"> 3</label>
+      <label><input type="radio" name="q40" value="4"> 4</label>
+      <label><input type="radio" name="q40" value="5"> 5</label>
+    </div>
+  </div>
+
+<button type="submit" class="submit-btn">إرسال</button>
+
+        <div id="result"></div>
+      </form>
+    </section>
+  </main>
+
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("eoForm");
+    const resultDiv = document.getElementById("result");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // تعريف أسماء الأبعاد وترتيبها (لتوضيح النتائج)
+      const dimensionNames = [
+        "الإبداع (الأسئلة 1-8)",
+        "الاستباقية (الأسئلة 9-16)",
+        "الاستقلالية (الأسئلة 17-24)",
+        "المخاطرة (الأسئلة 25-32)",
+        "العدوانية التنافسية (الأسئلة 33-40)"
+      ];
+
+      const dimensionAverages = []; // لتخزين متوسط كل بُعد
+
+      // حساب متوسط كل بُعد (8 أسئلة لكل بُعد)
+      for (let dimension = 0; dimension < 5; dimension++) {
+        let sum = 0;
+        const startQuestion = dimension * 8 + 1; // بداية الأسئلة لكل بُعد
+        const endQuestion = startQuestion + 7;   // نهاية الأسئلة لكل بُعد
+
+        for (let q = startQuestion; q <= endQuestion; q++) {
+          const answer = document.querySelector(`input[name="q${q}"]:checked`);
+          if (!answer) {
+            resultDiv.innerHTML = `⚠️ يرجى الإجابة على جميع أسئلة البُعد <strong>${dimensionNames[dimension]}</strong>`;
+            resultDiv.style.display = "block";
+            return;
+          }
+          sum += parseInt(answer.value);
+        }
+
+        const average = (sum / 8).toFixed(2); // متوسط البُعد
+        dimensionAverages.push(average);
+      }
+
+      // حساب النتيجة النهائية (EO)
+      const finalEO = (
+        dimensionAverages.reduce((total, avg) => total + parseFloat(avg), 0) / 5
+      ).toFixed(2);
+
+      // عرض النتائج
+      let resultHTML = `
+        <h3> النتائج:</h3>
+        <ul>
+          <li><strong>${dimensionNames[0]}:</strong> ${dimensionAverages[0]}</li>
+          <li><strong>${dimensionNames[1]}:</strong> ${dimensionAverages[1]}</li>
+          <li><strong>${dimensionNames[2]}:</strong> ${dimensionAverages[2]}</li>
+          <li><strong>${dimensionNames[3]}:</strong> ${dimensionAverages[3]}</li>
+          <li><strong>${dimensionNames[4]}:</strong> ${dimensionAverages[4]}</li>
+        </ul>
+        <h3>✅ النتيجة النهائية (EO): ${finalEO}</h3>
+      `;
+
+      resultDiv.innerHTML = resultHTML;
+      resultDiv.style.display = "block";
+    });
+  });
+</script>
+
+  
+
+
+
+
+

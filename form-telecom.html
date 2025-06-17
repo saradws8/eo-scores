@@ -1,56 +1,31 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>الاستبيان العام - EO</title>
+  <title>استبيان قطاع الاتصالات - EO</title>
   <style>
+    /* التنسيق مثل الاستبيان العام */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
     }
+
     body {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       background-color: #f9f9f9;
     }
+
     main {
       display: flex;
       flex-grow: 1;
       padding: 20px;
       gap: 20px;
     }
-    .sidebar {
-      width: 220px;
-      background-color: #f4f4f4;
-      border-left: 1px solid #ccc;
-      padding: 20px;
-      overflow-y: auto;
-      position: sticky;
-      top: 80px;
-      align-self: flex-start;
-      height: calc(100vh - 140px);
-    }
-    .sidebar ul {
-      list-style: none;
-    }
-    .sidebar li {
-      margin-bottom: 15px;
-    }
-    .sidebar a {
-      text-decoration: none;
-      color: #333;
-      font-size: 18px;
-      display: block;
-      transition: background 0.3s;
-    }
-    .sidebar a:hover {
-      background-color: #ddd;
-      padding-right: 10px;
-    }
+
     .content {
       flex-grow: 1;
       background: white;
@@ -59,29 +34,35 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.1);
       overflow-y: auto;
     }
+
     h2 {
       color: #74b9ef;
       margin-bottom: 20px;
       text-align: right;
     }
+
     .question {
       margin-bottom: 20px;
     }
+
     label {
       font-weight: bold;
       display: block;
       margin-bottom: 8px;
     }
+
     .options {
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
     }
+
     .options label {
       font-weight: normal;
     }
+
     .submit-btn {
-      background-color: #74b9ef;
+      background-color:#74b9ef ;
       color: white;
       padding: 12px 20px;
       font-size: 16px;
@@ -92,9 +73,11 @@
       display: inline-block;
       transition: background 0.3s;
     }
+
     .submit-btn:hover {
       background-color: #aad5f6;
     }
+
     #result {
       display: none;
       margin-top: 30px;
@@ -110,12 +93,17 @@
   </style>
 </head>
 <body>
+
   <main>
-    <section class="content" id="section1">
-      <h2>الاستبيان العام لتقييم التوجه الريادي (EO)</h2>
-      <form id="eoForm">
+    <section class="content">
+      <h2>استبيان قطاع الاتصالات لتقييم التوجه الريادي (EO)</h2>
+
+      <form id="telecomForm">
+        <!-- 10 أسئلة (سؤالين لكل بعد) -->
+
+        <!-- الابتكار -->
         <div class="question">
-          <label>1. المؤسسة تشجع على تطوير أفكار جديدة وإبداعية.</label>
+          <label>1. يتم تشجيع موظفي الاتصالات على تقديم أفكار جديدة.</label>
           <div class="options">
             <label><input type="radio" name="q1" value="1" /> 1</label>
             <label><input type="radio" name="q1" value="2" /> 2</label>
@@ -124,8 +112,9 @@
             <label><input type="radio" name="q1" value="5" /> 5</label>
           </div>
         </div>
+
         <div class="question">
-          <label>2. يتم تشجيع الموظفين على تقديم حلول مبتكرة.</label>
+          <label>2. يتم دعم الحلول الإبداعية داخل الشركة.</label>
           <div class="options">
             <label><input type="radio" name="q2" value="1" /> 1</label>
             <label><input type="radio" name="q2" value="2" /> 2</label>
@@ -134,8 +123,10 @@
             <label><input type="radio" name="q2" value="5" /> 5</label>
           </div>
         </div>
+
+        <!-- الاستباقية -->
         <div class="question">
-          <label>3. المؤسسة تسعى دائمًا لاستباق المنافسين.</label>
+          <label>3. الشركة تسبق منافسيها في تقديم خدمات جديدة.</label>
           <div class="options">
             <label><input type="radio" name="q3" value="1" /> 1</label>
             <label><input type="radio" name="q3" value="2" /> 2</label>
@@ -144,8 +135,9 @@
             <label><input type="radio" name="q3" value="5" /> 5</label>
           </div>
         </div>
+
         <div class="question">
-          <label>4. يتم اتخاذ قرارات سريعة عند ظهور الفرص.</label>
+          <label>4. نسعى باستمرار لتقديم تقنيات اتصالات حديثة قبل المنافسين.</label>
           <div class="options">
             <label><input type="radio" name="q4" value="1" /> 1</label>
             <label><input type="radio" name="q4" value="2" /> 2</label>
@@ -154,8 +146,10 @@
             <label><input type="radio" name="q4" value="5" /> 5</label>
           </div>
         </div>
+
+        <!-- الجرأة -->
         <div class="question">
-          <label>5. المؤسسة لا تتردد في تجربة فرص جديدة حتى إن كانت تحمل مخاطرة.</label>
+          <label>5. المؤسسة لا تتردد في تجربة خدمات جديدة حتى لو بها مخاطرة.</label>
           <div class="options">
             <label><input type="radio" name="q5" value="1" /> 1</label>
             <label><input type="radio" name="q5" value="2" /> 2</label>
@@ -164,8 +158,9 @@
             <label><input type="radio" name="q5" value="5" /> 5</label>
           </div>
         </div>
+
         <div class="question">
-          <label>6. لدينا استعداد لتحمل مخاطر محسوبة عند اتخاذ قرارات مهمة.</label>
+          <label>6. يتم اتخاذ قرارات جريئة في تطوير خدمات الاتصالات.</label>
           <div class="options">
             <label><input type="radio" name="q6" value="1" /> 1</label>
             <label><input type="radio" name="q6" value="2" /> 2</label>
@@ -174,8 +169,10 @@
             <label><input type="radio" name="q6" value="5" /> 5</label>
           </div>
         </div>
+
+        <!-- الاستقلالية -->
         <div class="question">
-          <label>7. الموظفون لديهم حرية التصرف ضمن مسؤولياتهم.</label>
+          <label>7. الموظفون في قطاع الاتصالات لديهم حرية اتخاذ قراراتهم اليومية.</label>
           <div class="options">
             <label><input type="radio" name="q7" value="1" /> 1</label>
             <label><input type="radio" name="q7" value="2" /> 2</label>
@@ -184,8 +181,9 @@
             <label><input type="radio" name="q7" value="5" /> 5</label>
           </div>
         </div>
+
         <div class="question">
-          <label>8. هناك ثقة كبيرة بقدرة الموظفين على اتخاذ قرارات مستقلة.</label>
+          <label>8. توجد ثقة عالية في قدرة الموظفين على اتخاذ قرارات مستقلة.</label>
           <div class="options">
             <label><input type="radio" name="q8" value="1" /> 1</label>
             <label><input type="radio" name="q8" value="2" /> 2</label>
@@ -194,8 +192,10 @@
             <label><input type="radio" name="q8" value="5" /> 5</label>
           </div>
         </div>
+
+        <!-- العدوانية التنافسية -->
         <div class="question">
-          <label>9. مؤسستي تسعى باستمرار لتجاوز المنافسين في السوق.</label>
+          <label>9. نسعى لتقديم عروض تنافسية تفوق باقي الشركات.</label>
           <div class="options">
             <label><input type="radio" name="q9" value="1" /> 1</label>
             <label><input type="radio" name="q9" value="2" /> 2</label>
@@ -204,8 +204,9 @@
             <label><input type="radio" name="q9" value="5" /> 5</label>
           </div>
         </div>
+
         <div class="question">
-          <label>10. المؤسسة تبادر دائمًا بمنافسة قوية دون تردد.</label>
+          <label>10. نُبادر دائمًا بمنافسة قوية في السوق دون تردد.</label>
           <div class="options">
             <label><input type="radio" name="q10" value="1" /> 1</label>
             <label><input type="radio" name="q10" value="2" /> 2</label>
@@ -214,59 +215,62 @@
             <label><input type="radio" name="q10" value="5" /> 5</label>
           </div>
         </div>
+
         <button type="submit" class="submit-btn">إرسال</button>
         <div id="result"></div>
       </form>
     </section>
   </main>
+
   <script>
-    console.log("JavaScript is loaded!");
-    document.getElementById('eoForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      console.log("Form submitted!");
-      const resultDiv = document.getElementById('result');
-      console.log(resultDiv);
-      const dimensionScores = [];
-      const dimensionNames = ['الإبداع', 'الاستباقية', 'المخاطرة', 'الاستقلالية', 'العدوانية التنافسية'];
+  document.getElementById('telecomForm').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-      resultDiv.style.display = 'none';
-      resultDiv.innerHTML = '';
-      document.querySelectorAll('.question').forEach(q => q.style.border = 'none');
+  const resultDiv = document.getElementById('result');
+  const dimensionScores = [];
+  const dimensionNames = ['الإبداع', 'الاستباقية', 'المخاطرة', 'الاستقلالية', 'العدوانية التنافسية'];
 
-      let allAnswered = true;
+  // مسح التنسيقات السابقة
+  resultDiv.style.display = 'none';
+  resultDiv.innerHTML = '';
+  document.querySelectorAll('.question').forEach(q => q.style.border = 'none');
 
-      for (let i = 1; i <= 10; i += 2) {
-        const answer1 = document.querySelector(`input[name="q${i}"]:checked`);
-        const answer2 = document.querySelector(`input[name="q${i + 1}"]:checked`);
+  let allAnswered = true;
 
-        if (!answer1 || !answer2) {
-          allAnswered = false;
-          document.querySelector(`input[name="q${i}"]`).closest('.question').style.border = '2px solid red';
-          document.querySelector(`input[name="q${i + 1}"]`).closest('.question').style.border = '2px solid red';
-          break;
-        }
+  for (let i = 1; i <= 10; i += 2) {
+    const answer1 = document.querySelector(`input[name="q${i}"]:checked`);
+    const answer2 = document.querySelector(`input[name="q${i + 1}"]:checked`);
 
-        const avg = (parseInt(answer1.value) + parseInt(answer2.value)) / 2;
-        dimensionScores.push(avg);
-      }
+    if (!answer1 || !answer2) {
+      allAnswered = false;
+      // تمييز السؤالين الناقصين
+      document.querySelector(`input[name="q${i}"]`).closest('.question').style.border = '2px solid red';
+      document.querySelector(`input[name="q${i + 1}"]`).closest('.question').style.border = '2px solid red';
+      break;
+    }
 
-      if (!allAnswered) {
-        resultDiv.innerText = "⚠️ يرجى الإجابة على جميع الأسئلة قبل الإرسال.";
-        resultDiv.style.display = 'block';
-        return;
-      }
+    const avg = (parseInt(answer1.value) + parseInt(answer2.value)) / 2;
+    dimensionScores.push(avg);
+  }
 
-      const finalEOScore = (dimensionScores.reduce((a, b) => a + b, 0) / dimensionScores.length).toFixed(2);
+  if (!allAnswered) {
+    resultDiv.innerText = "⚠️ يرجى الإجابة على جميع الأسئلة قبل الإرسال.";
+    resultDiv.style.display = 'block';
+    return;
+  }
 
-      let resultHTML = "<strong>✅ شكراً لك نتائج التوجه الريادي (EO):</strong><br><br>";
-      dimensionScores.forEach((score, index) => {
-        resultHTML += `<div><strong>${dimensionNames[index]}</strong>: ${score.toFixed(2)}</div><hr>`;
-      });
-      resultHTML += `<br><strong>النتيجة النهائية: ${finalEOScore}</strong>`;
+  const finalEOScore = (dimensionScores.reduce((a, b) => a + b, 0) / dimensionScores.length).toFixed(2);
 
-      resultDiv.innerHTML = resultHTML;
-      resultDiv.style.display = 'block';
-    });
+  let resultHTML = "<strong>✅ شكراً لك نتائج التوجه الريادي (EO)لديك  :</strong><br><br>";
+  dimensionScores.forEach((score, index) => {
+    resultHTML += `<div><strong>${dimensionNames[index]}</strong>: ${score.toFixed(2)}</div><hr>`;
+  });
+  resultHTML += `<br><strong>النتيجة النهائية: ${finalEOScore}</strong>`;
+
+  resultDiv.innerHTML = resultHTML;
+  resultDiv.style.display = 'block';
+}); 
+
   </script>
 </body>
 </html>
